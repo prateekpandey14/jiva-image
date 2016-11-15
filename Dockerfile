@@ -1,4 +1,4 @@
-FROM ubuntu:latest
+FROM ubuntu:16.04
 MAINTAINER prateek14 <prateek.pandey@cloudbyte.com>
 RUN apt-get update
 RUN apt-get install -y git 
