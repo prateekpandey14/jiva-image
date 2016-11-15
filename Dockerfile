@@ -1,7 +1,7 @@
 FROM ubuntu:16.04
 MAINTAINER prateek14 <prateek.pandey@cloudbyte.com>
 RUN apt-get update
-RUN apt-get install -y git automake gcc curl
+RUN apt-get install -y git automake gcc curl make
 
 ENV GOLANG_VERSION 1.7.3
 ENV GOLANG_DOWNLOAD_URL https://golang.org/dl/go$GOLANG_VERSION.linux-amd64.tar.gz
