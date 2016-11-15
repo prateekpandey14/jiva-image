@@ -1,14 +1,13 @@
 FROM ubuntu:16.04
 MAINTAINER prateek14 <prateek.pandey@cloudbyte.com>
 RUN apt-get update
-RUN apt-get install -y git 
+RUN apt-get install -y git automake
 RUN git clone https://github.com/golang/go.git
-RUN mkdir -p $GOPATH/src/github.com/openebs/
-RUN cd $GOPATH/src/github.com/openebs/
-RUN git clone https://github.com/openebs/gotgt gotgt
-RUN ls 
-RUN ls $GOPATH/src/github.com/openebs/
-RUN apt-get install -y automake 
-RUN cd gotgt; ./autogen.sh
-RUN cd gotgt; ./configure
+RUN export GOROOT=$HOME/go ;\
+export GOPATH=$HOME/openebs;\
+export PATH=$PATH:$GOROOT/bin
+Run mkdir Openebs
+RUN cd Openebs ;\
+git clone https://github.com/openebs/gotgt gotgt 
+RUN cd Openebs/gotgt; ./autogen.sh; ./configure
 RUN make
