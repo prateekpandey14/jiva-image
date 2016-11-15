@@ -7,6 +7,6 @@ RUN mkdir -p $GOPATH/src/github.com/openebs/
 RUN cd $GOPATH/src/github.com/openebs/
 RUN git clone https://github.com/openebs/gotgt gotgt
 RUN cd gotgt
-RUN ./autogen.sh
-RUN ./configure
+RUN /bin/bash -c ./autogen.sh
+RUN /bin/bash -c ./configure
 RUN make
