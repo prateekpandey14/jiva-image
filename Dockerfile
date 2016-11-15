@@ -16,6 +16,7 @@ Run mkdir Openebs
 RUN cd Openebs ;\
 git clone https://github.com/gostor/gotgt gotgt 
 RUN export GOROOT=`pwd`/go ;\
+export PATH=$PATH:/usr/local/go/bin ;\
 export GOPATH=`pwd`/Openebs;\
 export PATH=$PATH:$GOROOT/bin;\
 cd Openebs/gotgt; ./autogen.sh; ./configure; ls;\
