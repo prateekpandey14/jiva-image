@@ -19,5 +19,5 @@ RUN export GOROOT=`pwd`/go ;\
 export PATH=$PATH:/usr/local/go/bin ;\
 export GOPATH=`pwd`/src/github.com/openebs ;\
 export PATH=$PATH:$GOROOT/bin;\
-cd `pwd`/src/github.com/openebs/longhorn \
+cd `pwd`/src/github.com/openebs/longhorn ;\
 make
