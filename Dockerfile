@@ -20,8 +20,7 @@ export PATH=$PATH:/usr/local/go/bin ;\
 export GOPATH=`pwd`/src/github.com/openebs ;\
 export PATH=$PATH:$GOROOT/bin;\
 mkdir -p `pwd`github.com/rancher/trash ;\
-cd `pwd`github.com/rancher/trash ;\
 cd `pwd`/src/github.com/openebs/longhorn ;\
-go get github.com/rancher/trash ;\
+go get -u github.com/rancher/trash ;\
 trash . ;\
 sudo make
