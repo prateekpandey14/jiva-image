@@ -19,5 +19,5 @@ RUN export GOROOT=`pwd`/go ;\
 export PATH=$PATH:/usr/local/go/bin ;\
 export GOPATH=`pwd`/src/github.com/openebs ;\
 export PATH=$PATH:$GOROOT/bin;\
-cd Openebs/gotgt; ./autogen.sh; ./configure ;\
+cd `pwd`/src/github.com/openebs/gotgt; ./autogen.sh; ./configure ;\
 make
