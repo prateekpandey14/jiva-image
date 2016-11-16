@@ -21,7 +21,6 @@ export GOPATH=`pwd`/src/github.com/openebs ;\
 export PATH=$PATH:$GOROOT/bin;\
 mkdir -p `pwd`github.com/rancher/trash ;\
 cd `pwd`/src/github.com/openebs/longhorn ;\
-pwd ;\
-go get github.com/rancher/trash ls ;\
+go get github.com/rancher/trash .;\
 trash . ;\
 make
