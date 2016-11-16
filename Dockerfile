@@ -13,14 +13,14 @@ RUN curl -fsSL "$GOLANG_DOWNLOAD_URL" -o golang.tar.gz \
 && rm golang.tar.gz
 
 # Docker Install
-RUN sudo apt-get update ;\
-sudo apt-key adv --keyserver hkp://p80.pool.sks-keyservers.net:80 \
+RUN apt-get update ;\
+apt-key adv --keyserver hkp://p80.pool.sks-keyservers.net:80 \
   --recv-keys 58118E89F3A912897C070ADBF76221572C52609D ;\
-sudo tee /etc/apt/sources.list.d/docker.list ;\
-sudo apt-get update ;\
+tee /etc/apt/sources.list.d/docker.list ;\
+apt-get update ;\
 apt-cache policy docker-engine ;\
-sudo apt-get install -y docker-engine ;\
-sudo systemctl status docker ;\
+apt-get install -y docker-engine ;\
+systemctl status docker ;\
 docker info
 
 RUN mkdir -p `pwd`/src/github.com/openebs/
