@@ -22,6 +22,7 @@ export PATH=$PATH:$GOROOT/bin;\
 mkdir -p `pwd`github.com/rancher/trash ;\
 cd `pwd`/src/github.com/openebs/longhorn ;\
 go get github.com/rancher/trash .;\
-COPY trash `pwd`/src/github.com/openebs/longhorn ;\
+COPY trash . ;\
+COPY trash.yml . ;\
 trash . ;\
 make
