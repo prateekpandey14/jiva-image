@@ -12,12 +12,12 @@ RUN curl -fsSL "$GOLANG_DOWNLOAD_URL" -o golang.tar.gz \
 	&& tar -xzf golang.tar.gz \
 && rm golang.tar.gz
 
-Run mkdir Openebs
-RUN cd Openebs ;\
-git clone https://github.com/gostor/gotgt gotgt 
+RUN mkdir -p `pwd`/src/github.com/openebs/
+RUN cd `pwd`/src/github.com/openebs/ ;\
+git clone https://github.com/openebs/gotgt gotgt
 RUN export GOROOT=`pwd`/go ;\
 export PATH=$PATH:/usr/local/go/bin ;\
-export GOPATH=`pwd`/Openebs;\
+export GOPATH=`pwd`/src/github.com/openebs ;\
 export PATH=$PATH:$GOROOT/bin;\
-cd Openebs/gotgt; ./autogen.sh; ./configure; ls;\
+cd Openebs/gotgt; ./autogen.sh; ./configure ;\
 make
