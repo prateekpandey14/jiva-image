@@ -14,10 +14,10 @@ RUN curl -fsSL "$GOLANG_DOWNLOAD_URL" -o golang.tar.gz \
 
 RUN mkdir -p `pwd`/src/github.com/openebs/
 RUN cd `pwd`/src/github.com/openebs/ ;\
-git clone https://github.com/openebs/gotgt gotgt
+git clone https://github.com/openebs/longhorn.git
 RUN export GOROOT=`pwd`/go ;\
 export PATH=$PATH:/usr/local/go/bin ;\
 export GOPATH=`pwd`/src/github.com/openebs ;\
 export PATH=$PATH:$GOROOT/bin;\
-cd `pwd`/src/github.com/openebs/gotgt; ./autogen.sh; ./configure ;\
+cd `pwd`/src/github.com/openebs/longhorn \
 make
