@@ -19,7 +19,7 @@ echo "deb https://apt.dockerproject.org/repo ubuntu-xenial main" | tee /etc/apt/
 apt-get update ;\
 apt-cache policy docker-engine ;\
 apt-get install -y docker-engine ;\
-sudo systemctl status docker ;\
+systemctl status docker ;\
 sudo docker info
 
 RUN mkdir -p `pwd`/src/github.com/openebs/
