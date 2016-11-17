@@ -1,7 +1,14 @@
 FROM ubuntu:16.04
 MAINTAINER prateek14 <prateek.pandey@cloudbyte.com>
-RUN apt-get update
-RUN apt-get install -y git automake gcc curl make apt-transport-https ca-certificates
+RUN apt-get update && apt-get install -y \
+             git \
+	     automake \
+	     gcc \
+	     curl \
+	     make \
+	     apt-transport-https \
+	     ca-certificates \
+	     && rm -rf /var/lib/apt/lists/*
 
 ENV GOLANG_VERSION 1.7.3
 ENV GOLANG_DOWNLOAD_URL https://golang.org/dl/go$GOLANG_VERSION.linux-amd64.tar.gz
@@ -22,6 +29,7 @@ export GOPATH=`pwd`/src/github.com/openebs ;\
 export PATH=$PATH:$GOROOT/bin;\
 mkdir -p `pwd`github.com/rancher/trash ;\
 cd `pwd`/src/github.com/openebs/longhorn ;\
-go get github.com/rancher/trash .;\
+go get github.com/rancher/trash . ;\
+COPY trash `pwd`/src/github.com/openebs/longhorn ;\
 trash . ;\
 make
