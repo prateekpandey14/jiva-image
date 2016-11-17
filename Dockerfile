@@ -20,7 +20,7 @@ apt-get update ;\
 apt-cache policy docker-engine ;\
 apt-get install -y docker-engine ;\
 systemctl status docker ;\
-sudo docker info
+docker info
 
 RUN mkdir -p `pwd`/src/github.com/openebs/
 RUN cd `pwd`/src/github.com/openebs/ ;\
