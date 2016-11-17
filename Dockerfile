@@ -1,7 +1,7 @@
 FROM ubuntu:16.04
 MAINTAINER prateek14 <prateek.pandey@cloudbyte.com>
 RUN apt-get update
-RUN apt-get install -y git automake gcc curl make
+RUN apt-get install -y git automake gcc curl make apt-transport-https ca-certificates
 
 ENV GOLANG_VERSION 1.7.3
 ENV GOLANG_DOWNLOAD_URL https://golang.org/dl/go$GOLANG_VERSION.linux-amd64.tar.gz
@@ -14,7 +14,7 @@ RUN curl -fsSL "$GOLANG_DOWNLOAD_URL" -o golang.tar.gz \
 
 # Docker Install
 RUN apt-get update ;\
-apt-key adv --keyserver hkp://p80.pool.sks-keyservers.net:80 \--recv-keys 58118E89F3A912897C070ADBF76221572C52609D ;\
+apt-key adv --keyserver hkp://p80.pool.sks-keyservers.net:80 --recv-keys 58118E89F3A912897C070ADBF76221572C52609D ;\
 echo "deb https://apt.dockerproject.org/repo ubuntu-xenial main" | tee /etc/apt/sources.list.d/docker.list ;\
 apt-get update ;\
 apt-cache policy docker-engine ;\
