@@ -9,10 +9,11 @@ RUN apt-get update && apt-get install -y \
 	     apt-transport-https \
 	     ca-certificates \
 	     && rm -rf /var/lib/apt/lists/*
-
+ENV Jiva_SOURCE /go/src/github.com/openebs/longhorn
 ENV GOLANG_VERSION 1.7.3
 ENV GOLANG_DOWNLOAD_URL https://golang.org/dl/go$GOLANG_VERSION.linux-amd64.tar.gz
 ENV GOLANG_DOWNLOAD_SHA256 508028aac0654e993564b6e2014bf2d4a9751e3b286661b0b0040046cf18028e
+WORKDIR ${Jiva_SOURCE}
 
 RUN curl -fsSL "$GOLANG_DOWNLOAD_URL" -o golang.tar.gz \
 	&& echo "$GOLANG_DOWNLOAD_SHA256  golang.tar.gz" | sha256sum -c - \
@@ -29,7 +30,7 @@ export GOPATH=`pwd`/src/github.com/openebs ;\
 export PATH=$PATH:$GOROOT/bin;\
 mkdir -p `pwd`github.com/rancher/trash ;\
 cd `pwd`/src/github.com/openebs/longhorn ;\
-go get github.com/rancher/trash . ;\
-COPY trash.yml `pwd`/src/github.com/openebs/longhorn/ ;\
+go get github.com/rancher/trash ;\
+cp trash.yml `pwd`/src/github.com/openebs/longhorn/ ;\
 trash . ;\
 make
