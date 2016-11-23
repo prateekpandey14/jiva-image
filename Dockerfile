@@ -43,7 +43,7 @@ RUN GOPATH=/tmp/docker-longhorn-driver && \
 
 # Docker
 RUN curl -sL https://get.docker.com/builds/Linux/x86_64/docker-1.9.1 > /usr/bin/docker && \
-chmod +x /usr/bin/docker && \
+chmod +x /usr/bin/docker
 
 #Docker install
 #apt-get update ;\
