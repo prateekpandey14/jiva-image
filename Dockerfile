@@ -19,7 +19,10 @@ ENV PATH $PATH:/usr/local/go/bin/:$GOPATH/bin
 
 #adding docker group
 RUN groupadd docker && \
-usermod -aG docker $USER
+usermod -aG docker $USER && \
+useradd --create-home --gid docker unprivilegeduser
+
+
 
 # Go tools
 RUN go get github.com/rancher/trash
@@ -30,16 +33,16 @@ RUN curl -sL https://get.docker.com/builds/Linux/x86_64/docker-1.9.1 > /usr/bin/
 chmod +x /usr/bin/docker && \
 
 #Docker install
-#apt-get update ;\
-#apt-key adv --keyserver hkp://p80.pool.sks-keyservers.net:80 --recv-keys 58118E89F3A912897C070ADBF76221572C52609D ;\
-#echo "deb https://apt.dockerproject.org/repo ubuntu-xenial main" | tee /etc/apt/sources.list.d/docker.list ;\
-#apt-get update ;\
-#apt-cache policy docker-engine ;\
-#apt-get install -y docker-engine && \
+apt-get update ;\
+apt-key adv --keyserver hkp://p80.pool.sks-keyservers.net:80 --recv-keys 58118E89F3A912897C070ADBF76221572C52609D ;\
+echo "deb https://apt.dockerproject.org/repo ubuntu-xenial main" | tee /etc/apt/sources.list.d/docker.list ;\
+apt-get update ;\
+apt-cache policy docker-engine ;\
+apt-get install -y docker-engine && \
 #echo "done"
-#systemctl status docker ;\
+systemctl status docker ;\
 #service docker status ;\
-#docker info
+docker info
 
 
 
