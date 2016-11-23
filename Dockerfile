@@ -18,9 +18,9 @@ ENV GOPATH=/go
 ENV PATH $PATH:/usr/local/go/bin/:$GOPATH/bin
 
 #adding docker group
-RUN groupadd docker && \
-usermod -aG docker $USER && \
-useradd --create-home --gid docker unprivilegeduser
+RUN groupadd -r docker
+#usermod -aG docker $USER && \
+RUN useradd --create-home --gid docker unprivilegeduser
 
 
 
