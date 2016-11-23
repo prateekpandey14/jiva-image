@@ -65,5 +65,6 @@ RUN cd $GOPATH/src/github.com/openebs/ && \
     git clone https://github.com/openebs/longhorn.git && \
     cd $GOPATH/src/github.com/openebs/longhorn && \
     trash . && \
-    make VERBOSE=1 &&\
+    ls -ltr scripts/ && \
+    make VERBOSE=1 && \
     make
