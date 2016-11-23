@@ -66,4 +66,5 @@ RUN cd $GOPATH/src/github.com/openebs/ && \
     cd $GOPATH/src/github.com/openebs/longhorn && \
     trash . && \
     ls -ltr scripts/ && \
+    chmod -R +x scripts/ && \
     make -k
