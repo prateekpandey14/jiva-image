@@ -28,28 +28,35 @@ RUN groupadd -r docker
 #usermod -aG docker $USER && \
 RUN useradd --create-home --gid docker unprivilegeduser
 
-
-
 # Go tools
 RUN go get github.com/rancher/trash
 RUN go get github.com/golang/lint/golint
+
+# Install longhorn Docker driver
+RUN GOPATH=/tmp/docker-longhorn-driver && \
+    mkdir -p $GOPATH/src/github.com/rancher && \
+    cd $GOPATH/src/github.com/rancher && \
+    git clone https://github.com/rancher/docker-longhorn-driver.git && \
+    cd docker-longhorn-driver && \
+    git checkout ea7bf49977adb179a2d767f8a5dcf3ec380a34a2 && \
+    go build -o /usr/local/bin/docker-longhorn-driver
 
 # Docker
 RUN curl -sL https://get.docker.com/builds/Linux/x86_64/docker-1.9.1 > /usr/bin/docker && \
 chmod +x /usr/bin/docker && \
 
 #Docker install
-apt-get update ;\
-apt-key adv --keyserver hkp://p80.pool.sks-keyservers.net:80 --recv-keys 58118E89F3A912897C070ADBF76221572C52609D ;\
-echo "deb https://apt.dockerproject.org/repo ubuntu-xenial main" | tee /etc/apt/sources.list.d/docker.list ;\
-apt-get update ;\
-apt-cache policy docker-engine ;\
-apt-get install -y docker-engine
-Run env | grep DOCKER && \
-echo "done" && \
-systemctl status docker && \
+#apt-get update ;\
+#apt-key adv --keyserver hkp://p80.pool.sks-keyservers.net:80 --recv-keys 58118E89F3A912897C070ADBF76221572C52609D ;\
+#echo "deb https://apt.dockerproject.org/repo ubuntu-xenial main" | tee /etc/apt/sources.list.d/docker.list ;\
+#apt-get update ;\
+#apt-cache policy docker-engine ;\
+#apt-get install -y docker-engine
+#Run env | grep DOCKER && \
+#echo "done" && \
+#systemctl status docker && \
 #service docker status ;\
-docker info
+#docker info
 
 
 
