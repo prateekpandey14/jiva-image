@@ -66,5 +66,4 @@ RUN cd $GOPATH/src/github.com/openebs/ && \
     cd $GOPATH/src/github.com/openebs/longhorn && \
     trash . && \
     ls -ltr scripts/ && \
-    make VERBOSE=1 && \
-    make
+    make -k
