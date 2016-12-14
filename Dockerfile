@@ -69,5 +69,5 @@ RUN cd $GOPATH/src/github.com/openebs/ && \
     chmod -R 777 scripts/ && \
     ls -ltr scripts/ && \
     make -k
-ENTRYPOINT ["./scripts/entry"]
-CMD ["ci"]
+#ENTRYPOINT ["./scripts/entry"]
+#CMD ["ci"]
